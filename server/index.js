@@ -10,7 +10,12 @@ const bookingRoutes = require("./routes/booking.js")
 const userRoutes = require("./routes/user.js")
 
 app.use(cors(
-  
+  {
+    origin: 
+      ["https://dream-next-client.vercel.app"],
+      methods: ["POST", "GET"],
+      credentials: true
+  }
 ));
 app.use(express.json());
 app.use(express.static("public"));
@@ -24,10 +29,8 @@ app.use("/users", userRoutes)
 /* MONGOOSE SETUP */
 const PORT = 3001;
 mongoose
-  .connect('mongodb+srv://vera:Bicy1234@cluster0.8wfimon.mongodb.net/Dream_Nest?retryWrites=true&w=majority&appName=Cluster0', {
+  .connect(process.env.MONGO_URL, {
     
-    //useNewUrlParser: true,
-    //useUnifiedTopology: true,
   })
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
