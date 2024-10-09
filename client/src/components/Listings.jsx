@@ -18,8 +18,8 @@ const Listings = () => {
     try {
       const response = await fetch(
         selectedCategory !== "All"
-          ? `https://dream-next-api.vercel.app/properties?category=${selectedCategory}`
-          : "https://dream-next-api.vercel.app/properties",
+          ? `/properties?category=${selectedCategory}`
+          : "/properties",
         {
           method: "GET",
         }

@@ -16,7 +16,7 @@ const PropertyList = () => {
   const dispatch = useDispatch()
   const getPropertyList = async () => {
     try {
-      const response = await fetch(`https://dream-next-api.vercel.app/users/${user._id}/properties`, {
+      const response = await fetch(`/users/${user._id}/properties`, {
         method: "GET"
       })
       const data = await response.json()

@@ -17,7 +17,7 @@ const TripList = () => {
   const getTripList = async () => {
     try {
       const response = await fetch(
-        `https://dream-next-api.vercel.app/users/${userId}/trips`,
+        `/users/${userId}/trips`,
         {
           method: "GET",
         }
