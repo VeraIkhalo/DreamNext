@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 /* ROUTES */
+app.use(express.static('public'));
 app.use("/auth", authRoutes)
 app.use("/properties", listingRoutes)
 app.use("/bookings", bookingRoutes)
