@@ -9,7 +9,7 @@ import { DateRange } from "react-date-range";
 import Loader from "../components/Loader";
 import Navbar from "../components/Navbar";
 import { useSelector } from "react-redux";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 
 const ListingDetails = () => {
   const [loading, setLoading] = useState(true);
@@ -38,8 +38,7 @@ const ListingDetails = () => {
     getListingDetails();
   }, []);
 
-  console.log(listing)
-
+  console.log(listing);
 
   /* BOOKING CALENDAR */
   const [dateRange, setDateRange] = useState([
@@ -60,9 +59,9 @@ const ListingDetails = () => {
   const dayCount = Math.round(end - start) / (1000 * 60 * 60 * 24); // Calculate the difference in day unit
 
   /* SUBMIT BOOKING */
-  const customerId = useSelector((state) => state?.user?._id)
+  const customerId = useSelector((state) => state?.user?._id);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     try {
@@ -73,30 +72,33 @@ const ListingDetails = () => {
         startDate: dateRange[0].startDate.toDateString(),
         endDate: dateRange[0].endDate.toDateString(),
         totalPrice: listing.price * dayCount,
-      }
+      };
 
-      const response = await fetch("https://dream-next-api.vercel.app/bookings/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bookingForm)
-      })
+      const response = await fetch(
+        "https://dream-next-api.vercel.app/bookings/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bookingForm),
+        }
+      );
 
       if (response.ok) {
-        navigate(`/${customerId}/trips`)
+        navigate(`/${customerId}/trips`);
       }
     } catch (err) {
-      console.log("Submit Booking Failed.", err.message)
+      console.log("Submit Booking Failed.", err.message);
     }
-  }
+  };
 
   return loading ? (
     <Loader />
   ) : (
     <>
       <Navbar />
-      
+
       <div className="listing-details">
         <div className="title">
           <h1>{listing.title}</h1>
@@ -104,12 +106,10 @@ const ListingDetails = () => {
         </div>
 
         <div className="photos">
-          {listing.listingPhotoPaths?.map((item) => (
-            <img
-              src={`https://dream-next-api.vercel.app/${item.replace("public/uploads/", "")}`}
-              alt="listing photo"
-            />
-          ))}
+          const imageUrl = `https://dream-next-api.vercel.app/uploads/$
+          {item.replace("public/uploads/", "")}`; console.log("Image URL:",
+          imageUrl); // Debugging line return{" "}
+          <img src={imageUrl} alt="listing photo" key={item} />;
         </div>
 
         <h2>
