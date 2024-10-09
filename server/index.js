@@ -10,12 +10,7 @@ const bookingRoutes = require("./routes/booking.js")
 const userRoutes = require("./routes/user.js")
 
 app.use(cors(
-  {
-    origin: 
-      ["https://dream-next-client.vercel.app"],
-      methods: ["POST", "GET"],
-      credentials: true
-  }
+  
 ));
 app.use(express.json());
 app.use(express.static("public"));
