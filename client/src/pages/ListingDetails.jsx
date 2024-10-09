@@ -106,7 +106,7 @@ const ListingDetails = () => {
         <div className="photos">
           {listing.listingPhotoPaths?.map((item) => (
             <img
-              src={`https://dream-next-api.vercel.app/${item.replace("public", "")}`}
+              src={`https://dream-next-api.vercel.app/${item.replace("public/uploads/", "")}`}
               alt="listing photo"
             />
           ))}
@@ -125,7 +125,7 @@ const ListingDetails = () => {
         <div className="profile">
           <img
             src={`https://dream-next-api.vercel.app/${listing.creator.profileImagePath.replace(
-              "public",
+              "public/uploads/",
               ""
             )}`}
           />
