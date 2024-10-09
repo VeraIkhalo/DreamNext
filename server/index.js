@@ -12,7 +12,7 @@ const userRoutes = require("./routes/user.js")
 app.use(cors(
   {
     origin: 
-      ["https://dream-next-client.vercel.app"],
+      ["https://dream-next-client-three.vercel.app"],
       methods: ["POST", "GET"],
       credentials: true
   }
