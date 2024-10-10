@@ -9,7 +9,7 @@ const listingRoutes = require("./routes/listing.js")
 const bookingRoutes = require("./routes/booking.js")
 const userRoutes = require("./routes/user.js")
 
-app.use(cors({ origin: 'https://dream-next-client-roan.vercel.app' }));
+app.use(cors({ origin: 'https://dream-next-client-voo.vercel.app' }));
 app.use(express.json());
 
 
