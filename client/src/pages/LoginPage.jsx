@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault()
 
     try {
-      const response = await fetch ("/auth/login", {
+      const response = await fetch ("https://dream-next-api.vercel.app/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
